@@ -7,6 +7,16 @@ import { Trophy, RefreshCw, Info } from 'lucide-react';
 
 type Party = 'D' | 'R' | 'T'; // Democrat, Republican, Toss-up
 
+/**
+ * ElectoralSimulator Component
+ * 
+ * An interactive tool that allows users to simulate US Presidential Election scenarios.
+ * Users can assign states to parties and watch a real-time electoral vote counter.
+ * Features:
+ * - Reactive bar chart for electoral vote tracking
+ * - SVG-based interactive state assignment
+ * - Victory state detection (270 to win)
+ */
 export const ElectoralSimulator = () => {
   const [stateStatus, setStateStatus] = useState<Record<string, Party>>(() => {
     const initial: Record<string, Party> = {};
