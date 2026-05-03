@@ -5,6 +5,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/shared/Ca
 import { Badge } from '@/components/shared/Badge';
 import { Button } from '@/components/shared/Button';
 import { Info, Maximize2, Minimize2 } from 'lucide-react';
+import { PollingPlaceLocator } from './PollingPlaceLocator';
 
 // Simplified SVG Path data for US Map (abbreviated for demonstration)
 const statePaths: Record<string, string> = {
@@ -143,6 +144,8 @@ export const VotingRightsMap = () => {
                     {statesData[selectedState].stateName} requires registration {statesData[selectedState].registrationDeadlineDays} days before the election.
                   </p>
                 </div>
+
+                <PollingPlaceLocator stateName={statesData[selectedState].stateName} />
 
                 <Button className="w-full">Full State Profile</Button>
               </CardContent>

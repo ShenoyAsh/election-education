@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import { ClientProviders } from "@/components/shared/ClientProviders";
+import { GoogleAnalytics } from "@/components/shared/GoogleAnalytics";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
       <body className="antialiased">
+        <GoogleAnalytics />
         <ClientProviders>{children}</ClientProviders>
       </body>
     </html>

@@ -10,9 +10,11 @@ export const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 flex h-20 w-full items-center justify-between border-b border-border bg-background/80 px-8 backdrop-blur-md">
-      <div className="relative w-96 hidden md:block">
-        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-muted" />
+      <div className="relative w-96 hidden md:block" role="search">
+        <label htmlFor="search-input" className="sr-only">Search for election info</label>
+        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-muted" aria-hidden="true" />
         <input 
+          id="search-input"
           type="text" 
           placeholder="Search for election info..." 
           className="w-full rounded-full border border-border bg-surface-2/50 py-2 pl-10 pr-4 text-sm focus:ring-2 focus:ring-primary/20 focus:outline-none"
@@ -20,22 +22,26 @@ export const Navbar = () => {
       </div>
 
       <div className="flex items-center gap-6">
-        <div className="flex items-center gap-2 rounded-full bg-accent/10 px-4 py-1.5 border border-accent/20">
-          <Zap className="h-4 w-4 text-accent fill-current" />
+        <div className="flex items-center gap-2 rounded-full bg-accent/10 px-4 py-1.5 border border-accent/20" aria-label={`Current points: ${points} XP`}>
+          <Zap className="h-4 w-4 text-accent fill-current" aria-hidden="true" />
           <span className="text-sm font-black text-accent">{points} XP</span>
         </div>
 
         <div className="flex gap-4">
-          <button className="relative rounded-full bg-surface-2 p-2 text-text-secondary hover:text-text-primary transition-colors">
-            <Bell className="h-5 w-5" />
+          <button 
+            className="relative rounded-full bg-surface-2 p-2 text-text-secondary hover:text-text-primary transition-colors"
+            aria-label="View notifications"
+          >
+            <Bell className="h-5 w-5" aria-hidden="true" />
             <span className="absolute right-1 top-1 h-2 w-2 rounded-full bg-error border-2 border-background" />
           </button>
           
           <button 
             className="rounded-full bg-surface-2 p-2 text-text-secondary hover:text-text-primary transition-colors"
             onClick={() => setTheme(theme === 'patriot' ? 'modern' : 'patriot')}
+            aria-label="Switch theme"
           >
-            <Settings className="h-5 w-5" />
+            <Settings className="h-5 w-5" aria-hidden="true" />
           </button>
         </div>
 
